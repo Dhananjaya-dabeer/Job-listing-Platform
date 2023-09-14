@@ -7,9 +7,14 @@ const app = express();
 dotenv.config();
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/now", (req, res) => {
-  res.send({ message: "All Good" });
+app.get('/', (req,res) => {
+    res.status(200).send('go to /health to confirm the server is working')
+})
+
+app.get("/health", (req, res) => {
+  res.send({ message: "Server is up and running" });
 });
+
 
 let PORT = process.env.PORT;
 let connect = mongoose
