@@ -1,0 +1,97 @@
+.signup{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.leftcomp{
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 12%;
+}
+
+.createaccount p{
+    color: #525252;
+}
+.error-msg{
+    font-weight: 500;
+    background-color: rgba(236, 100, 75, 0.6);
+    margin: 0 0 3% 0;
+}
+
+.inputfields {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3em;
+}
+
+#name, #email, #mobile, #password {
+    width: 120%;
+    height:180% ;
+    
+    border: 2px solid #c2c2c2;
+    border-radius: 5px;
+    color: #525252;
+    font-size: 125%;
+    
+}
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+     -webkit-appearance: none;
+     margin: 0;
+        }
+.inputfields div{
+    display: flex;
+    justify-content: flex-start;
+    
+}
+
+
+.checkbox p {
+font-weight: 400;
+color: #525252;
+font-size: 100%;
+
+}
+
+.registerimg{
+    display: flex;
+    justify-content: flex-end;
+}
+.registerimg img{
+    height: 100vh;
+    width: 42vw;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.registerimg p {
+    font-weight: 500;
+    font-size: 200%;
+    position: absolute;
+    right: 6%;
+    color: white;
+}
+.register-butn button{
+    background: #ED5353;
+    color: white;
+    font-size: 140%;
+    width: 40%;
+    height: 2.5em;
+    border-radius: 5px;
+    border: initial;
+    cursor: pointer;
+}
+
+.routetosignin p {
+    color:#525252;
+}
+.routetosignin a {
+color: black;
+font-weight: 600;
+}

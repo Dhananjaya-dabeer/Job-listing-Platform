@@ -1,0 +1,64 @@
+.signin{
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+.imgcontainer {
+    display: flex;
+    justify-content: flex-end;
+}
+.imgcontainer img {
+    width: 42vw;
+    height: 100vh;
+}
+.signin form {
+    margin: 10% 0 0 15%;
+}
+
+.response-msg{
+    border-radius: 5px;
+    width: 120%;
+    font-weight: 500;
+    height: 40px;
+    background-color: rgba(236, 100, 75, 0.6);
+    margin: 0 0 3% 0;
+}
+.signin .inputholder {
+    display: flex;
+    flex-direction: column;    
+    row-gap: 2em;
+}
+
+#passwordholder, #emailholder {
+    width: 120%;
+    height:50px ;
+    border: 2px solid #c2c2c2;
+    border-radius: 5px;
+    color: #525252;
+    font-size: 125%;
+    
+}
+
+.imgcontainer p{
+    font-weight: 500;
+    font-size: 200%;
+    position: absolute;
+    right: 6%;
+    color: white;
+}
+
+.signin-butn button{
+    margin-top: 10%;
+    background: #ED5353;
+    color: white;
+    font-size: 140%;
+    width: 50%;
+    height: 2.5em;
+    border-radius: 5px;
+    border: initial;
+    cursor: pointer;
+}
+.signin-butn a{
+    font-weight: 500;
+    color: black;
+}
