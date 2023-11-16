@@ -1,9 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
 import { jobdetails } from "../Contexts/jobContext";
-import JD from "./JobDetailsPage.module.css";
+import JD from "./JobDetails_loggedInPage.module.css";
 import navImage from "../images/Outer rectangle.png";
 import { Link } from "react-router-dom";
 import suitCase from "../images/Suitcase.svg";
+import { clearLocalStorage, getItemFromLocalStorage } from "../utils";
 function JobDetailsPage() {
   let { jobDetails } = useContext(jobdetails);
   const [workFromHome, setWorkFromHome] = useState("");
@@ -21,7 +22,7 @@ function JobDetailsPage() {
   if (!jobDetails) {
     return <h1>Please return to HomePage</h1>;
   }
-  console.log(job_details);
+  // console.log(job_details);
   let jobPoition = job_details.jobposition;
   let companyName = job_details.companyName;
   let jobType = job_details.jobtype;
@@ -32,6 +33,10 @@ function JobDetailsPage() {
   let salary = job_details.monthlysalary;
   let additionalInfo = job_details.information;
   let arrayOfSkills = skillsRequired.split(",");
+  
+  const logOutHandler = () => {
+    clearLocalStorage()
+  }
   return (
     <div className={JD.jd_page}>
       <div className={JD.nav}>
@@ -43,13 +48,11 @@ function JobDetailsPage() {
             <h2>Jobfinder</h2>
           </div>
           <div className={JD.button}>
-            <button id={JD.login}>
+            <button id={JD.login} onClick={logOutHandler}>
               {" "}
-              <Link to={"/signin"}>Login</Link>
+              <Link to={"/signin"}>Logout</Link>
             </button>
-            <button id={JD.signup}>
-              <Link to={"/signup"}>Register</Link>
-            </button>
+            <p>{getItemFromLocalStorage('userName')}</p>
           </div>
         </div>
       </div>

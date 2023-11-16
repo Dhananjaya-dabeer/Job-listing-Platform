@@ -1,16 +1,18 @@
 import React, { useEffect, useContext } from "react";
 import { jobdetails } from "../Contexts/jobContext";
 import outerRect from "../images/Outer rectangle.png";
-import Home from "./HomePage.module.css";
+import Home from "./HomePage_Loggedin.module.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
-function HomePage() {
+import { clearLocalStorage, getItemFromLocalStorage } from "../utils";
+import { name } from "../Contexts/recruiter";
+function HomePage_Loggedin() {
   const [skills, setSkills] = useState([]);
   const [jobBrief, setJobBrief] = useState([]);
   const [dbSkills, setdbSkills] = useState([]);
   const {setJobDetails} = useContext(jobdetails);
-  const [search,setSearch] = useState('')
+ 
   let skillsHandler = (event) => {
     let skill = event.target.value;
 
@@ -28,12 +30,10 @@ function HomePage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/jobs?search=${search}`)
+      .get("http://localhost:4000/jobs")
       .then((res) => {
-        const resdata = res.data.data || [];
-        
+        let resdata = res.data.data;
         setJobBrief(resdata);
-        console.log( resdata)
         let arrayOfSplittedArray = [];
         for (let element of resdata) {
           for (let prop in element) {
@@ -45,25 +45,26 @@ function HomePage() {
             }
           }
         }
-        
-        // setdbSkills(skillsrequired)
+
       })
       .catch((err) => console.log(err));
-  }, [search]);
+  }, []);
 
   const jobDetails = async(index) => {
-   let axiosResponse =  await axios.get('http://localhost:4000/jobs')
-   try {
-    setJobDetails(axiosResponse.data.data[index],)
-   } catch (error) {
+  let responseInstance =  await axios.get('http://localhost:4000/jobs')
+  try {
+    setJobDetails(responseInstance.data.data[index])
+    
+  } catch (error) {
     console.log(error)
-   }
+  }
+  }
 
-   }
+  const logOutHandler = () => {
+    clearLocalStorage()
+  }
   
-  
-  
-  
+ 
   return (
     <div className={Home.home}>
       <div className={Home.nav}>
@@ -75,13 +76,11 @@ function HomePage() {
             <h2>Jobfinder</h2>
           </div>
           <div className={Home.button}>
-            <button id={Home.login}>
+            <button id={Home.logout}>
               {" "}
-              <Link to={"/signin"}>Login</Link>
+              <Link to={"/"} onClick={logOutHandler}>Logout</Link>
             </button>
-            <button id={Home.signup}>
-              <Link to={"/signup"}>Register</Link>
-            </button>
+            <p>{getItemFromLocalStorage('userName')}</p>
           </div>
         </div>
       </div>
@@ -92,8 +91,6 @@ function HomePage() {
             type="search"
             id={Home.input}
             placeholder="Type any job title "
-            onChange={(e) => setSearch(e.target.value)}
-            value={search}
           />
         </div>
         <div className={Home.select}>
@@ -116,6 +113,11 @@ function HomePage() {
                 <span onClick={() => removeSkills(index)}>&#10005;</span>
               </div>
             ))}
+          </div>
+          <div className={Home.addjob}>
+            <button>
+              <Link to={'/addjob'}>+ Add Job</Link>
+            </button>
           </div>
         </div>
       </div>
@@ -157,7 +159,7 @@ function HomePage() {
                       ))}
                     </span>
                     <div className={Home.viewdetails_btn}>
-                      <Link to={'/jobdetails'}><button onClick={ () => jobDetails(index)}>View details</button></Link>
+                      <Link to={'/signin/jobdetails'}><button onClick={ () => jobDetails(index)}>View details</button></Link>
                     </div>
                   </div>
                 </div>
@@ -171,4 +173,4 @@ function HomePage() {
     </div>
   );
 }
-export default HomePage;
+export default HomePage_Loggedin;

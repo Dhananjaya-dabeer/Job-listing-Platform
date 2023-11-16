@@ -1,15 +1,25 @@
-import react, { useState } from "react";
+import react, { useEffect, useState,useContext } from "react";
 import registerimg from "../images/registerimg.png";
 import axios from "axios";
 import "./signInPage.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getItemFromLocalStorage, setItemToLocalStorage } from "../utils";
+
 
 function SignInPage() {
   const [response, setResponse] = useState("");
+
+  const navigate = useNavigate()
   const [user, setUser] = useState({
     Email: "",
     Password: "",
   });
+
+  useEffect(()=>{
+    const userLoggedIn = !!getItemFromLocalStorage('user-token')
+    console.log('navigating')
+    userLoggedIn && navigate('/homepage')
+  }, [])
 
   const SignInHandler = (event) => {
     event.preventDefault();
@@ -19,17 +29,25 @@ function SignInPage() {
     axios
       .post("http://localhost:4000/SignIn", user)
       .then((res) => {
-        setResponse(res.data.message);
-        setUser({
-          Email: "",
-          Password: "",
-        });
-      })
+        let response = res.data.message
+          setResponse(response);
+          setItemToLocalStorage('userName',response)
+          setItemToLocalStorage('user-token', res.data.token)
+          setUser({
+            Email: "",
+            Password: "",
+          });
+          
+          if(res.data.token) navigate('/homepage')
+        
+    
+        })
       .catch((err) => {
-        console.log(err.response);
-        setResponse(err.response.data.message);
+        console.log(err);
+        // setResponse(err);
       });
   };
+  
   return (
     <div className="signin">
       <form onSubmit={SignInHandler}>

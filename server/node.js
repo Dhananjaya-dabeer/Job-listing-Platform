@@ -85,7 +85,7 @@ let signUp = async (req, res) => {
     await User.create(userDetails);
 
     const token = jwt.sign(userDetails, process.env.JWT_SECRET, {
-      expiresIn: 120000,
+      expiresIn: Infinity
     });
      
     res.json({
@@ -123,11 +123,11 @@ const signIn = async (req, res) => {
       });
     }
     const token = jwt.sign(user.toJSON(), process.env.JWT_SECRET, {
-      expiresIn: 120000,
+      expiresIn: Infinity,
     });
     res.json({
       status: "Success",
-      message: `Welcome ${user.Name}`,
+      message: `Hello! ${user.Name}`,
       token,
     });
   } catch (err) {
@@ -185,7 +185,7 @@ app.post("/signIn", signIn);
 app.post('/Add-Job',verifyToken, addJob);
 
 app.get('/edit-job/:_id',editJob )
-
+      
 app.get('/jobs', jobs)
 
 app.use((req,res,next) => {

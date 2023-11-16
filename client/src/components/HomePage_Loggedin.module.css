@@ -1,0 +1,220 @@
+.home{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.innercontent{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: -7%;
+   
+}
+
+
+.image #outer{
+    width: 100vw;
+}
+
+.jobfinder h2{
+    color: white;
+}
+
+.button{
+    width: 20vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.button p {
+    color: white;
+    margin-bottom: 8%;
+    font-weight: 700;
+}
+
+.button button{
+    margin: 8%;
+    /* width: 200%; */
+    height: 4vh;
+    border-radius: 7px;
+    border: 1px solid white;
+    color: #FF6B6B;
+    font-weight: 500;
+    font-size: 120%;
+    background-color: initial;
+}
+
+.button #logout a{
+    color: white;
+    text-decoration: none;
+}
+
+.searchbarcontainer{
+    box-shadow: 0px 0px 22px 4px #FF202040;
+    width: 65vw;
+    height: 25vh;
+    /* margin: 11%; */
+    margin: 11% 0 0 15%;
+
+}
+
+.searchbar{
+    width: 56vw;
+    margin-top: 2%;
+    border-radius: 9px;
+    border: 1.8px solid #E3E3E3;
+    margin-left: 4.5vw;
+    background: transparent url("data:image/svg+xml,%3Csvg width='27' height='27' viewBox='0 0 27 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.3073 19.4279L27 25.1193L25.1193 27L19.4279 21.3073C17.3103 23.0049 14.6763 23.9282 11.9622 23.9244C5.35906 23.9244 0 18.5653 0 11.9622C0 5.35906 5.35906 0 11.9622 0C18.5653 0 23.9244 5.35906 23.9244 11.9622C23.9282 14.6763 23.0049 17.3103 21.3073 19.4279ZM18.6411 18.4417C20.3279 16.707 21.2699 14.3818 21.2661 11.9622C21.2661 6.82111 17.1019 2.65827 11.9622 2.65827C6.82111 2.65827 2.65827 6.82111 2.65827 11.9622C2.65827 17.1019 6.82111 21.2661 11.9622 21.2661C14.3818 21.2699 16.707 20.3279 18.4417 18.6411L18.6411 18.4417Z' fill='%239C9C9C'/%3E%3C/svg%3E%0A") no-repeat left;
+}   
+.searchbar input{
+    width: 50vw;
+    height: 5vh;
+    border: none;
+    outline: none;
+    color: #9C9C9C;
+    font-size: 20px;
+}
+
+
+
+.select select{
+    border: 2px solid #CECECE;
+    border-radius: 9px;
+    margin: 0 0 0 4.5vw;
+    color: #9C9C9C;
+    margin-left: 7%;
+    width: 8vw;
+    height: 4vh;
+    outline: none;
+}
+.select{
+    margin-top:2.5% ;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+.popskills{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50vw;
+    
+}
+.popskills .skill_list{
+    text-decoration: none;
+    list-style: none;
+    background-color:  #FFEEEE;
+    /* width: 7vw; */
+    /* height: 3vh; */
+}
+.popskills .renderskill {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+/* .popskills ul{
+    display: flex;
+    justify-content: space-evenly;
+} */
+
+.popskills  span{
+    background-color: #FF6B6B;
+    color: white;
+    cursor: pointer;
+}
+
+.jobs{
+    display: flex;
+    width: 65vw;
+    box-shadow: 0px 0px 22px 2px #FF202040;
+    height: 15vh;
+    margin:2% 0 0 15%;
+}
+#loading_msg{
+    margin-top: 20vh;
+}
+
+.jobs #jobpstn{
+    color: #000000;
+    font-weight: 500;
+    margin: 0 0 0 4vw;
+    padding: 2% 0 0 2%;
+    display: flex;
+}
+.sal_loc{
+    display: flex;
+    justify-content: space-evenly;
+    width: 32vw;
+    color: #9C9C9C;
+    align-items: center;
+    margin-top: 2vh;
+}
+
+.type_remoOffice{
+    display: flex;
+    justify-content: space-evenly;
+    width: 32vw;
+    color: red;
+    align-items: center;
+    margin-top: 1vh;
+}
+
+.skills_JD{
+    display: flex;
+    width: 32vw;
+    height: 10vh;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 3vh;
+}
+.skills_JD .jbskills div{
+    background-color: #FFEEEE;
+}
+.skills_JD .jbskills{
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: 500;
+    
+}
+.viewdetails_btn a button{
+    background-color: #ED5353;
+    outline: none;
+    border: none;
+    width: 7vw;
+    height: 4vh;
+    color: white;
+    font-size: 90%;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+
+}
+.viewdetails_btn{
+    display: flex;
+    justify-content: right;
+}
+
+.addjob{
+    margin-right : 2vw ;
+    margin-top : 3vh
+
+}
+.addjob button{
+    background-color: #ED5353;
+    outline: none;
+    border: none;
+    width: 8vw;
+    height : 4.5vh
+}
+.addjob button a {
+    color : white;
+    text-decoration: none;
+    font-weight : 500;
+    font-size:140%
+}
