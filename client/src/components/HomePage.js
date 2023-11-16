@@ -28,12 +28,11 @@ function HomePage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/jobs?search=${search}`)
+      .get(`https://job-listingserverside.moletis813.repl.co/jobs?search=${search}`)
       .then((res) => {
         const resdata = res.data.data || [];
         
         setJobBrief(resdata);
-        console.log( resdata)
         let arrayOfSplittedArray = [];
         for (let element of resdata) {
           for (let prop in element) {
@@ -52,7 +51,7 @@ function HomePage() {
   }, [search]);
 
   const jobDetails = async(index) => {
-   let axiosResponse =  await axios.get('http://localhost:4000/jobs')
+   let axiosResponse =  await axios.get('https://job-listingserverside.moletis813.repl.co/jobs')
    try {
     setJobDetails(axiosResponse.data.data[index],)
    } catch (error) {
@@ -97,7 +96,7 @@ function HomePage() {
           />
         </div>
         <div className={Home.select}>
-          <select name="skills" id={Home.skills} onChange={skillsHandler}>
+          {/* <select name="skills" id={Home.skills} onChange={skillsHandler}>
             <option value="skills" selected>
               Skills
             </option>
@@ -106,8 +105,8 @@ function HomePage() {
             <option value="JavaScript">JavaScript</option>
             <option value="Frontend">Frontend</option>
             <option value="WordPress">WordPress</option>
-          </select>
-          <div className={Home.popskills}>
+          </select> */}
+          {/* <div className={Home.popskills}>
             {skills.map((item, index) => (
               <div className={Home.renderskill}>
                 <li className={Home.skill_list} key={index}>
@@ -116,7 +115,7 @@ function HomePage() {
                 <span onClick={() => removeSkills(index)}>&#10005;</span>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 

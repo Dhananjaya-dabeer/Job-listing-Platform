@@ -23,7 +23,7 @@ function JobDetailsPage() {
   }
   console.log(job_details);
   let jobPoition = job_details.jobposition;
-  let companyName = job_details.companyName;
+  let companyName = job_details.CompanyName;
   let jobType = job_details.jobtype;
   let location = job_details.location;
   let aboutCompany = job_details.aboutCompany;

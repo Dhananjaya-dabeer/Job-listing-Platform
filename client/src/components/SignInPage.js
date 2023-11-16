@@ -16,7 +16,7 @@ function SignInPage() {
   });
 
   useEffect(()=>{
-    const userLoggedIn = !!getItemFromLocalStorage('user-token')
+    const userLoggedIn = !!getItemFromLocalStorage('user-token') 
     console.log('navigating')
     userLoggedIn && navigate('/homepage')
   }, [])
@@ -27,9 +27,9 @@ function SignInPage() {
       return setResponse("All fields are required!");
     }
     axios
-      .post("http://localhost:4000/SignIn", user)
+      .post("https://job-listingserverside.moletis813.repl.co/SignIn", user)
       .then((res) => {
-        let response = res.data.message
+        let response = res.data.message || {}
           setResponse(response);
           setItemToLocalStorage('userName',response)
           setItemToLocalStorage('user-token', res.data.token)
@@ -43,11 +43,11 @@ function SignInPage() {
     
         })
       .catch((err) => {
-        console.log(err);
-        // setResponse(err);
+        // console.log(err.response.data.message);
+        setResponse(err.response.data.message);
       });
   };
-  
+ 
   return (
     <div className="signin">
       <form onSubmit={SignInHandler}>

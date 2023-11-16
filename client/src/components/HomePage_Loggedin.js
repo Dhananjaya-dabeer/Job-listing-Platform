@@ -30,7 +30,7 @@ function HomePage_Loggedin() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/jobs")
+      .get("https://job-listingserverside.moletis813.repl.co/jobs")
       .then((res) => {
         let resdata = res.data.data;
         setJobBrief(resdata);
@@ -51,7 +51,7 @@ function HomePage_Loggedin() {
   }, []);
 
   const jobDetails = async(index) => {
-  let responseInstance =  await axios.get('http://localhost:4000/jobs')
+  let responseInstance =  await axios.get('https://job-listingserverside.moletis813.repl.co/jobs')
   try {
     setJobDetails(responseInstance.data.data[index])
     
@@ -94,7 +94,7 @@ function HomePage_Loggedin() {
           />
         </div>
         <div className={Home.select}>
-          <select name="skills" id={Home.skills} onChange={skillsHandler}>
+          {/* <select name="skills" id={Home.skills} onChange={skillsHandler}>
             <option value="skills" selected>
               Skills
             </option>
@@ -103,8 +103,8 @@ function HomePage_Loggedin() {
             <option value="JavaScript">JavaScript</option>
             <option value="Frontend">Frontend</option>
             <option value="WordPress">WordPress</option>
-          </select>
-          <div className={Home.popskills}>
+          </select> */}
+          {/* <div className={Home.popskills}>
             {skills.map((item, index) => (
               <div className={Home.renderskill}>
                 <li className={Home.skill_list} key={index}>
@@ -113,7 +113,7 @@ function HomePage_Loggedin() {
                 <span onClick={() => removeSkills(index)}>&#10005;</span>
               </div>
             ))}
-          </div>
+          </div> */}
           <div className={Home.addjob}>
             <button>
               <Link to={'/addjob'}>+ Add Job</Link>

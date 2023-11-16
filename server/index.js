@@ -90,7 +90,7 @@ let signUp = async (req, res) => {
      
     res.json({
       status: "Suucees",
-      message: "User created Successfully",
+      message: "User created Successfully. Please SignIn to proceed",
       token,
     });
   } catch (err) {

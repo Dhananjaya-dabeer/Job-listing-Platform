@@ -19,18 +19,18 @@ function SignUpPage() {
 
 
 
-  useEffect(() => {
-    if (jwtToken) {
-      axios
-        .get(`http://localhost:4000/users`, {
-          headers: {
-            Authorization: `${jwtToken}`,
-          },
-        })
-        .then((res) => console.log(res.data.data))
-        .catch((err) => console.log(err.message));
-    }
-  }, [jwtToken]);
+  // useEffect(() => {
+  //   if (jwtToken) {
+  //     axios
+  //       .get(`https://job-listingserverside.moletis813.repl.co/users`, {
+  //         headers: {
+  //           Authorization: `${jwtToken}`,
+  //         },
+  //       })
+  //       .then((res) => console.log(res.data.data))
+  //       .catch((err) => console.log(err.message));
+  //   }
+  // }, [jwtToken]);
 
   const signupHandler = (event) => {
     event.preventDefault();
@@ -47,10 +47,11 @@ function SignUpPage() {
     }
 
     axios
-      .post(`http://localhost:4000/SignUp`, newUser)
+      .post(`https://job-listingserverside.moletis813.repl.co/SignUp`, newUser)
       .then((res) => {
         setJwtToken(res.data.token);
         setresponse(res.data.message)
+        console.log(res.data.message)
         // console.log(jwtToken);
         //
         setNewUser({

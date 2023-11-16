@@ -26,7 +26,7 @@ function AddjobPage() {
             jobData.information
             ){
              
-         let response =   await axios.post('http://localhost:4000/Add-Job',jobData,{
+         let response =   await axios.post('https://job-listingserverside.moletis813.repl.co/Add-Job',jobData,{
             headers: {
               Authorization: `${getItemFromLocalStorage('user-token')}`,
             },
