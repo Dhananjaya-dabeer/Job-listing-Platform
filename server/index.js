@@ -10,7 +10,9 @@ const JD = require('./Job_description')
 const editJob = require('./editjob')
 const jobs = require('./jobs')
 const app = express();
-dotenv.config();
+dotenv.config({
+  path : __dirname + '/.env'
+});
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
