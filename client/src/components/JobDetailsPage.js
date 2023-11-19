@@ -21,13 +21,13 @@ function JobDetailsPage() {
   if (!jobDetails) {
     return <h1>Please return to HomePage</h1>;
   }
-  console.log(job_details);
+  
   let jobPoition = job_details.jobposition;
   let companyName = job_details.CompanyName;
   let jobType = job_details.jobtype;
   let location = job_details.location;
   let aboutCompany = job_details.aboutCompany;
-  let jobDescription = job_details.jobDescription;
+  let jobDescription = job_details.information;
   let skillsRequired = job_details.skills;
   let salary = job_details.monthlysalary;
   let additionalInfo = job_details.information;
