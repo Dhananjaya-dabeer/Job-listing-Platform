@@ -125,7 +125,7 @@ const signIn = async (req, res) => {
       });
     }
     const token = jwt.sign(user.toJSON(), process.env.JWT_SECRET, {
-      expiresIn: Infinity,
+      expiresIn: 1000000,
     });
     res.json({
       status: "Success",
