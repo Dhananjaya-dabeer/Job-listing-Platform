@@ -87,7 +87,7 @@ let signUp = async (req, res) => {
     await User.create(userDetails);
 
     const token = jwt.sign(userDetails, process.env.JWT_SECRET, {
-      expiresIn: Infinity
+      expiresIn: 1000000
     });
      
     res.json({
