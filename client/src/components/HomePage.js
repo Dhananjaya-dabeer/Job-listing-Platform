@@ -28,7 +28,7 @@ function HomePage() {
 
   useEffect(() => {
     axios
-      .get(`https://job-listingserverside.moletis813.repl.co/jobs?search=${search}`)
+      .get(`https://job-listing-platform-gtms.onrender.com/jobs?search=${search}`)
       .then((res) => {
         const resdata = res.data.data || [];
         
@@ -51,7 +51,7 @@ function HomePage() {
   }, [search]);
 
   const jobDetails = async(index) => {
-   let axiosResponse =  await axios.get('https://job-listingserverside.moletis813.repl.co/jobs')
+   let axiosResponse =  await axios.get('https://job-listing-platform-gtms.onrender.com/jobs')
    try {
     setJobDetails(axiosResponse.data.data[index],)
    } catch (error) {

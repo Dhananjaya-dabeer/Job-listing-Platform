@@ -47,7 +47,7 @@ function SignUpPage() {
     }
 
     axios
-      .post(`https://job-listingserverside.moletis813.repl.co/SignUp`, newUser)
+      .post(`https://job-listing-platform-gtms.onrender.com/SignUp`, newUser)
       .then((res) => {
         setJwtToken(res.data.token);
         setresponse(res.data.message)

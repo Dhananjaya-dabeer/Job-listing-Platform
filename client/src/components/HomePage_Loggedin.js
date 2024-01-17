@@ -30,7 +30,7 @@ function HomePage_Loggedin() {
 
   useEffect(() => {
     axios
-      .get("https://job-listingserverside.moletis813.repl.co/jobs")
+      .get("https://job-listing-platform-gtms.onrender.com/jobs")
       .then((res) => {
         let resdata = res.data.data;
         setJobBrief(resdata);
@@ -51,7 +51,7 @@ function HomePage_Loggedin() {
   }, []);
 
   const jobDetails = async(index) => {
-  let responseInstance =  await axios.get('https://job-listingserverside.moletis813.repl.co/jobs')
+  let responseInstance =  await axios.get('https://job-listing-platform-gtms.onrender.com/jobs')
   try {
     setJobDetails(responseInstance.data.data[index])
     

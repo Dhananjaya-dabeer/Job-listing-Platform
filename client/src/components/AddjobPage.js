@@ -26,7 +26,7 @@ function AddjobPage() {
             jobData.information
             ){
              
-         let response =   await axios.post('https://job-listingserverside.moletis813.repl.co/Add-Job',jobData,{
+         let response =   await axios.post('https://job-listing-platform-gtms.onrender.com/Add-Job',jobData,{
             headers: {
               Authorization: `${getItemFromLocalStorage('user-token')}`,
             },

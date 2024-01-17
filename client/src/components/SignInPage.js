@@ -27,7 +27,7 @@ function SignInPage() {
       return setResponse("All fields are required!");
     }
     axios
-      .post("https://job-listingserverside.moletis813.repl.co/SignIn", user)
+      .post("https://job-listing-platform-gtms.onrender.com/SignIn", user)
       .then((res) => {
         let response = res.data.message || {}
           setResponse(response);
