@@ -27,7 +27,7 @@ function JobDetailsPage() {
   let jobType = job_details.jobtype;
   let location = job_details.location;
   let aboutCompany = job_details.aboutCompany;
-  let jobDescription = job_details.information;
+  let jobDescription = job_details.jobDescription;
   let skillsRequired = job_details.skills;
   let salary = job_details.monthlysalary;
   let additionalInfo = job_details.information;
