@@ -64,7 +64,7 @@ function HomePage_Loggedin() {
     clearLocalStorage()
   }
   
- 
+ console.log(jobBrief)
   return (
     <div className={Home.home}>
       <div className={Home.nav}>

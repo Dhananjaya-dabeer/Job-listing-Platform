@@ -25,7 +25,7 @@ const jobListing = async (req, res) => {
         remoteOffice: job.remoteOffice,
         location: job.location,
         skills: job.skillRequired,
-        remoteoffice: job.remoteOffice,
+        jobDescription: job.jobDescription,
         CompanyName : job.companyName,
         aboutCompany : job.aboutCompany,
         information : job.information
